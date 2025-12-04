@@ -1,0 +1,101 @@
+﻿<Window x:Class="QueryDebugger.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QueryDebugger.UI"
+        xmlns:converters="clr-namespace:QueryDebugger.UI.Converters"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        mc:Ignorable="d"
+        Title="Query Debugger" Height="700" Width="1000">
+    <Window.Resources>
+        <converters:BoolToIconConverter x:Key="BoolToIconConverter"/>
+        <converters:BoolToColorConverter x:Key="BoolToColorConverter"/>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Input Section -->
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <TextBlock Text="Connection String" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox x:Name="CmbConnectionString" IsEditable="True" Height="30" Margin="0,0,0,10" />
+
+            <TextBlock Text="SQL Query" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Border BorderThickness="1" BorderBrush="#ABADB3" Margin="0,0,0,10">
+                <avalon:TextEditor x:Name="TxtSqlQuery" Height="200" FontFamily="Consolas" SyntaxHighlighting="TSQL" ShowLineNumbers="True" FontSize="14"/>
+            </Border>
+
+            <TextBlock Text="Debug Parameters" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                    <TextBlock Text="Key Column (e.g. Id)"/>
+                    <TextBox x:Name="TxtKeyColumn" Text="Id"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                    <TextBlock Text="Target Value (e.g. 100)"/>
+                    <TextBox x:Name="TxtKeyValue" Text="1"/>
+                </StackPanel>
+            </Grid>
+
+            <Button x:Name="BtnAnalyze" Content="Analyze Query" Height="40" Click="BtnAnalyze_Click" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
+            
+            <Button x:Name="BtnExport" Content="Export Report" Height="30" Click="BtnExport_Click" Margin="0,10,0,0" Background="#F0F0F0"/>
+
+            <TextBlock x:Name="TxtStatus" Text="Ready" Margin="0,10,0,0" Foreground="Gray"/>
+        </StackPanel>
+
+        <!-- Results Section -->
+        <DockPanel Grid.Column="1">
+            <TextBlock DockPanel.Dock="Top" Text="Analysis Results" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            
+            <ScrollViewer>
+                <ItemsControl x:Name="LstResults">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10" Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Status Icon -->
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Passed, Converter={StaticResource BoolToIconConverter}}" 
+                                               Foreground="{Binding Passed, Converter={StaticResource BoolToColorConverter}}" 
+                                               FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+                                    <!-- Step Info -->
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <TextBlock Text="{Binding StepName}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Text="{Binding Description}" Foreground="Gray"/>
+                                    </StackPanel>
+
+                                    <!-- Error Details -->
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ErrorMessage}" Foreground="Red" TextWrapping="Wrap" 
+                                               Visibility="{Binding ErrorMessage, Converter={StaticResource StringToVisibilityConverter}}" Margin="0,5,0,0"/>
+
+                                    <!-- Query Used -->
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding GeneratedQuery}" IsReadOnly="True" 
+                                             Background="#F5F5F5" FontFamily="Consolas" FontSize="11" Margin="0,5,0,0" Padding="5" TextWrapping="Wrap"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

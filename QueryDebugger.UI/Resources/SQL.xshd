@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<SyntaxDefinition name="SQL" extensions=".sql" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment" foreground="Green" />
+	<Color name="String" foreground="Red" />
+	<Color name="Keyword" foreground="Blue" fontWeight="bold" />
+	
+	<RuleSet>
+		<Span color="Comment" begin="--" />
+		<Span color="Comment" multiline="true" begin="/\*" end="\*/" />
+		
+		<Span color="String">
+			<Begin>'</Begin>
+			<End>'</End>
+		</Span>
+		
+		<Keywords color="Keyword">
+			<Word>SELECT</Word>
+			<Word>FROM</Word>
+			<Word>WHERE</Word>
+			<Word>GROUP</Word>
+			<Word>BY</Word>
+			<Word>HAVING</Word>
+			<Word>ORDER</Word>
+			<Word>INNER</Word>
+			<Word>LEFT</Word>
+			<Word>RIGHT</Word>
+			<Word>JOIN</Word>
+			<Word>ON</Word>
+			<Word>AND</Word>
+			<Word>OR</Word>
+			<Word>NOT</Word>
+			<Word>IN</Word>
+			<Word>EXISTS</Word>
+			<Word>LIKE</Word>
+			<Word>IS</Word>
+			<Word>NULL</Word>
+			<Word>INSERT</Word>
+			<Word>UPDATE</Word>
+			<Word>DELETE</Word>
+			<Word>INTO</Word>
+			<Word>VALUES</Word>
+			<Word>CREATE</Word>
+			<Word>TABLE</Word>
+			<Word>ALTER</Word>
+			<Word>DROP</Word>
+            <Word>AS</Word>
+            <Word>DISTINCT</Word>
+            <Word>TOP</Word>
+            <Word>UNION</Word>
+            <Word>ALL</Word>
+		</Keywords>
+	</RuleSet>
+</SyntaxDefinition>

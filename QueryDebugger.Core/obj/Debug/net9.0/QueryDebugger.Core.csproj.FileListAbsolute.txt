@@ -1,0 +1,12 @@
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\bin\Debug\net9.0\QueryDebugger.Core.deps.json
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\bin\Debug\net9.0\QueryDebugger.Core.dll
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\bin\Debug\net9.0\QueryDebugger.Core.pdb
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.csproj.AssemblyReference.cache
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.AssemblyInfoInputs.cache
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.AssemblyInfo.cs
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.csproj.CoreCompileInputs.cache
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.dll
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\refint\QueryDebugger.Core.dll
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\QueryDebugger.Core.pdb
+C:\Users\ahmtt\PRO\SORGU OPT\QueryDebugger.Core\obj\Debug\net9.0\ref\QueryDebugger.Core.dll
